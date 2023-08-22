@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700;800;900&family=Raleway:wght@200;300;400;500;600;700&family=Roboto+Slab:wght@100&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/release/v5.5.0/css/all.css">
+</head>
+<style>
+        *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font-family: "Poppins",sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(CoffeeReviewbg.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    .navbar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        position: relative;
+        background-color: rgba(29, 5, 5, 0.952);
+        padding: 12px 20px;
+        font-size: 25px;
+    }
+
+    .navbar .review {
+        color: #a78295;
+    }
+
+    .logo img {
+        width: 30%;
+    }
+    .menu {
+        display: flex;
+    }
+    .menu li {padding-left: 30px;}
+    .menu li a {
+        display: inline-block;
+        text-decoration: none;
+        color: #f1dfae;
+        text-align: center;
+        transition: 0.15s ease-in-out;
+        position: relative ;
+        text-transform: uppercase;
+    }  
+    .menu li a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: #fff;
+        transition: 0.15s ease-in-out;
+    }
+    .menu li a:hover:after {
+        width: 100%;
+    }
+    .open-menu , .close-menu {
+        position: absolute;
+        color: #fff;
+        cursor: pointer;
+        font-size: 2.5rem;
+        display: none;    
+    }
+    .open-menu  {
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+    .close-menu {
+        top: 20px;
+        right: 20px;
+    }
+    #check {
+        display: none;
+    }
+
+    .testimonials {
+        padding: 40px 0;
+        background: transparent;
+        color: #f1dfae;
+        text-align: center;
+        cursor: pointer;
+    }
+
+
+    .inner {
+        max-width: 1200px;
+        margin: auto;
+        overflow: hidden;
+        padding: 0 20px;
+    }
+
+    .border {
+        width: 160px;
+        height: 5px;
+        background: green;
+        margin: 26px auto; 
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .col {
+        flex: 33.33%;
+        max-width: 33.33%;
+        box-sizing: border-box;
+        padding: 15px;
+    }
+
+    .testimonial {
+        background: #f1dfae;
+        color: black;
+        padding: 30px;
+        box-shadow: 0 0 10px #fff;
+        gap: 50px;
+        transition: 0.8s;
+    }
+    .testimonial:hover {
+        transform: scale(1.1);
+        z-index: 1;
+    }
+
+    .testimonial img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+
+    .name {
+        font-size: 20px;
+        text-transform: uppercase;
+        margin: 20px 0;
+    }
+
+    .stars {
+        color: purple;
+        margin-bottom: 20px;
+    }
+
+    @media(max-width: 610px){
+        .menu {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            z-index: 100;
+            background-color: rgb(29, 5, 5);
+            transition: all 0.2s ease-in-out;
+        }
+        .menu li {
+            margin-top: 40px;
+        }
+        .menu li a {
+            padding: 10px;
+        }
+        .menu li {
+            margin-top: 40px;
+        }
+        .menu li a {
+            padding: 10px;
+        }
+        .open-menu , .close-menu {
+            display: block;
+        }
+        #check:checked ~ .menu {
+            right: 0;
+        }
+
+        .testimonials {
+            display: none;
+        }
+    }
+
+
+
+</style>
+<body>
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li class="logo"><a href="Homepage.html"><img src="Fahb's Coffee Mix logo3.png" alt="logo"></a></li>
+                <input type="checkbox" id="check">
+                <span class="menu">
+                    <li><a href="Homepage.html">Home</a></li>
+                    <li><a href="About.html">About us</a></li>
+                    <li><a href="Product's.html">Products</a></li>
+                    <li><a href="Blogs.html">Blogs</a></li>
+                    <li><a href="Reviews.html" class="review">Review</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                    <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+                </span>
+                <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="testimonials">
+        <div class="inner">
+            <h1>Testimonials</h1>
+            <div class="border"></div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="testimonial">
+                        <img src="James Reid.jpg" alt="">
+                        <div class="name">James Reid</div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+
+                        <p>"Fantastic coffee, well-balanced and smooth."</p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="testimonial">
+                        <img src="Kathryn Bernando.jpg" alt="">
+                        <div class="name">Kathryn Bernardo</div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+
+                        <p>"Really enjoyed the coffee, excellent taste!"</p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="testimonial">
+                        <img src="Liza Soberano.jpg" alt="">
+                        <div class="name">Liza Soberano</div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+
+                        <p>"Expected better, the flavor was underwhelming."</p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="testimonial">
+                        <img src="Chris Evans.jpg" alt="">
+                        <div class="name">Chris Evans</div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+                        <p>"Great coffee, definitely worth sipping."</p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="testimonial">
+                        <img src="Jennifer Lawrence.jpg" alt="">
+                        <div class="name">Jennifer Lawrence</div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+                        <p>"Impressive brew, almost perfect! more coffee!"</p>
+                    </div>
+                </div>
+            </div>
+
+</body>
+</html>

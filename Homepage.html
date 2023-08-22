@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700;800;900&family=Raleway:wght@200;300;400;500;600;700&family=Roboto+Slab:wght@100&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<style>
+
+
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font-family: "Poppins",sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(Coffeeshopbg.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    .navbar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        position: relative;
+        background-color: rgba(29, 5, 5, 0.952);
+        padding: 12px 20px;
+        font-size: 25px;
+    }
+
+    .navbar .home {
+        color: #a78295;
+    }
+
+    .logo img {
+        width: 30%;
+    }
+    .menu {
+        display: flex;
+    }
+    .menu li {
+      padding-left: 30px;}
+    .menu li a {
+        display: inline-block;
+        text-decoration: none;
+        color: #f1dfae;
+        text-align: center;
+        transition: 0.15s ease-in-out;
+        position: relative ;
+        text-transform: uppercase;
+    }  
+    .menu li a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: #fff;
+        transition: 0.15s ease-in-out;
+    }
+    .menu li a:hover:after {
+        width: 100%;
+    }
+    .open-menu , .close-menu {
+        position: absolute;
+        color: #fff;
+        cursor: pointer;
+        font-size: 2.5rem;
+        display: none;    
+    }
+    .open-menu  {
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+    .close-menu {
+        top: 20px;
+        right: 20px;
+    }
+    #check {
+        display: none;
+    }
+
+        .description h1 h2 p {
+      font-size: clamp(4rem, 4vw, 6rem);
+    }
+
+    .description {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    color: #fff;
+    padding: 0 70px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    backdrop-filter: blur(2.2px);
+  }
+  .description h2 {
+
+    font-size: 45px;
+    font-family: 'Great Vibes', sans-serif;
+    font-weight: 100;
+    letter-spacing: 2px;
+    line-height: 50px;
+    color: #f1dfae; 
+  }
+
+  .description h1 {
+    font-size: 35px;
+    font-family: 'Raleway',sans-serif;
+    font-family: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 70px;
+  }
+
+  .description p {
+    font-size: 22px;
+    font-family: 'Raleway',sans-serif;
+    font-family: 100;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 25px;
+    margin-bottom: 30px;
+  }
+
+  .description button {
+    font-size: 20px;
+    font-family: 'Ralewaay',sans-serif;
+    font-weight: 700;
+    color: #fff;
+    background: none;
+    text-transform: none;
+    letter-spacing: 2px;
+    padding: 12px 20px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+
+  .description button:hover {
+    background: #fff;
+    color: #000;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #11111171;
+    height: auto;
+    width: 100vw;
+    padding-top: 0;
+    color: white;
+  }
+
+  footer p img {
+    width: 50px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+  }
+
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+
+  .footer-content p {
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+  }
+  .footer-bottom {
+    background: #000;
+    width: 100vw;
+    padding: 20px 0 ;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+  }
+
+  .footer-bottom span{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
+  }
+
+  .socials {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+  }
+
+  .socials li {
+    margin: 0 10px;
+  }
+
+  .socials a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .socials a i {
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+    transition: color .4 ease;
+  }
+
+  .socials a:hover {
+    background-color: #fff;
+    color: #a78295;
+    border-color: #fff;
+    box-shadow: 0 0 10px #fff;
+  }
+    
+    @media(max-width: 610px){
+        .menu {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            z-index: 100;
+            background-color: rgb(29, 5, 5);
+            transition: all 0.2s ease-in-out;
+        }
+        .menu li {
+            margin-top: 40px;
+        }
+        .menu li a {
+            padding: 10px;
+        }
+        .menu li {
+            margin-top: 40px;
+        }
+        .menu li a {
+            padding: 10px;
+        }
+        .open-menu , .close-menu {
+            display: block;
+        }
+        #check:checked ~ .menu {
+            right: 0;
+        }
+
+
+        .description h1 h2 p {
+      font-size: clamp(4rem, 4vw, 6rem);
+    }
+        footer {
+          display: none;
+
+        }
+    }
+
+
+
+
+
+
+</style>
+<body>
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li class="logo"><a href="Homepage.html"><img src="Fahb's Coffee Mix logo3.png" alt="logo"></a></li>
+                <input type="checkbox" id="check">
+                <span class="menu">
+                    <li><a href="Homepage.html" class="home">Home</a></li>
+                    <li><a href="About.html">About us</a></li>
+                    <li><a href="Product's.html">Products</a></li>
+                    <li><a href="Blogs.html">Blogs</a></li>
+                    <li><a href="Reviews.html">Review</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                    <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+                </span>
+                <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="description">
+        <h2>Welcome To</h2>
+        <h1>Fahb's Coffee Mix</h1>
+        <p>Discover the intricacies of each coffee bean origin and the magic that happens when different profiles harmonize.<br> Our carefully curated selection of beans from around the globe provides a canvas for your taste preferences.<br> From earthy and bold to delicate and bright, we'll help you explore the nuances of flavors that lie within every sip.</p>
+        <button>find your taste</button>
+       </div>
+
+    <br>
+
+    <footer>
+     <div class="footer-content">
+         <p>&copy;Contact Us<img src="Fahb's Coffee Mix logo3.png"></p>
+         <ul class="socials">
+             <li><a href="https://www.facebook.com" target="_blank"><i class='bx bxl-facebook'></i></a></li>
+             <li><a href="https://www.instagram.com" target="_blank"><i class='bx bxl-instagram' ></i></a></li>
+             <li><a href="https://www.twitter.com" target="_blank"><i class='bx bxl-twitter' ></i></a></li>
+             <li><a href="https://www.linkedin.com" target="_blank"><i class='bx bxl-linkedin' ></i></a></li>
+             <li><a href="https://www.youtube.com" target="_blank"><i class='bx bxl-youtube'></i></a></li>
+         </ul>
+     </div>
+     
+     <div class="footer-bottom">
+         <p>copyright &copy; Fahb's Coffee Mix <span>Moh Fahad Hasan</span></p>
+     </div>
+    </footer>   
+</body> 
+</html>
