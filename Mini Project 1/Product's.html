@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700;800;900&family=Raleway:wght@200;300;400;500;600;700&family=Roboto+Slab:wght@100&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<style>
+        *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font-family: "Poppins",sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(coffeebg5.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: #f1dfae;
+    }
+    .navbar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        position: relative;
+        background-color: rgba(29, 5, 5, 0.952);
+        padding: 12px 20px;
+        font-size: 25px;
+    }
+
+    .navbar .products {
+        color: #a78295;
+    }
+
+    .logo img {
+        width: 30%;
+    }
+    .menu {
+        display: flex;
+    }
+    .menu li {padding-left: 30px;}
+    .menu li a {
+        display: inline-block;
+        text-decoration: none;
+        color: #f1dfae;
+        text-align: center;
+        transition: 0.15s ease-in-out;
+        position: relative ;
+        text-transform: uppercase;
+    }  
+    .menu li a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: #fff;
+        transition: 0.15s ease-in-out;
+    }
+    .menu li a:hover:after {
+        width: 100%;
+    }
+    .open-menu , .close-menu {
+        position: absolute;
+        color: #fff;
+        cursor: pointer;
+        font-size: 2.5rem;
+        display: none;    
+    }
+    .open-menu  {
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+    .close-menu {
+        top: 20px;
+        right: 20px;
+    }
+    #check {
+        display: none;
+    }
+    @media(max-width: 610px){
+        .menu {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            z-index: 100;
+            background-color: rgb(29, 5, 5);
+            transition: all 0.2s ease-in-out;
+        }
+        .menu li {
+            margin-top: 40px;
+        }
+        .menu li a {
+            padding: 10px;
+        }
+        .menu li {
+            margin-top: 40px;
+        }
+        .menu li a {
+            padding: 10px;
+        }
+        .open-menu , .close-menu {
+            display: block;
+        }
+        #check:checked ~ .menu {
+            right: 0;
+        }
+
+    }
+
+
+    h1{
+        text-align: center;
+        margin-bottom: 5rem;
+        font-size: 7rem;
+        margin-top: 5rem;
+        font-family: 'Great Vibes', sans-serif;
+    }
+
+    .all-products {
+        display: flex ;
+        align-content: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .product {
+        overflow: hidden;
+        background: #ffffff;
+        color: #21201e;
+        text-align: center;
+        width: 300px;
+        height: 600px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1.2rem;
+        margin: 2rem;
+        border: 3px solid #a78295;
+        border-radius: 50px;
+    }
+
+    .product:hover img {
+        scale: 1.1;
+    }
+    .product:hover {
+        box-shadow: 5px 15px transparent;
+    }
+    .product img {
+        height: 300px;
+        margin: 1rem;
+        transition: all 0.3s;
+    }
+
+    .product a:link, .product a:visited {
+        color: #fff;
+        display: inline-block;
+        text-decoration: none;
+        background-color: #2c3e50;
+        padding: 1.2rem 3rem;
+        border-radius: 1rem;
+        margin-top: 1rem;
+        transition: all 0.2s;
+    }
+    .product a:hover {
+        transform: scale(1.1);
+    }
+
+    .our-product {
+        display: flex ;
+        align-content: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .stock-product {
+        overflow: hidden;
+        background: #ffffff;
+        color: #21201e;
+        text-align: center;
+        width: 300px;
+        height: 600px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1.2rem;
+        margin: 2rem;
+        border: 3px solid #a78295;
+        border-radius: 50px;
+    }
+
+    .stock-product:hover img {
+        scale: 1.1;
+    }
+    .stock-product:hover {
+        box-shadow: 5px 15px transparent;
+    }
+    .stock-product img {
+        height: 300px;
+        margin: 1rem;
+        transition: all 0.3s;
+    }
+
+    section {
+        color: #f1dfae;
+    }
+
+    .product-btn {
+        text-decoration: none;
+        border-radius: 5px;
+        text-align: center;
+        background: #f1dfae;
+        width: 160px;
+        padding: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: rgba(29, 5, 5, 0.952);
+        cursor: pointer;
+    }
+
+    h4 {
+        font-size: 22px;
+        margin: auto;
+    }
+    p {
+        margin: auto;
+        font-size: 18px;
+    }
+
+    #matcha {
+        width: 200px;
+    }
+
+    .footer-bottom {
+    position: absolute;
+    background: #000;
+    width: 100vw;
+    padding: 20px 0 ;
+    text-align: center;
+  }
+  .footer-bottom p {
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+    color: #fff;
+  }
+
+  .footer-bottom span{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
+  }
+
+</style>
+<body>
+
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li class="logo"><a href="Homepage.html"><img src="Fahb's Coffee Mix logo3.png" alt="logo"></a></li>
+                <input type="checkbox" id="check">
+                <span class="menu">
+                    <li><a href="Homepage.html">Home</a></li>
+                    <li><a href="About.html">About us</a></li>
+                    <li><a href="Product's.html" class="products">Products</a></li>
+                    <li><a href="Blogs.html">Blogs</a></li>
+                    <li><a href="Reviews.html">Review</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                    <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+                </span>
+                <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <section class="products">
+        <h1>Our Coffee Mix</h1>
+        <div class="all-products">
+            <div class="product">
+                <img src="Iced Coffee.png">
+                <div class="product-info">
+                    <h4 class="product-title">Iced Coffee
+                    </h4>
+                    <br>
+                    <p class="ingredients">Coffee,Water,Ice,Cream and Sugar (optional).
+                    </p>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="Ultra Caramel Frappuccino.png">
+                <div class="product-info">
+                    <h4 class="product-title">Ultra Caramel Frappuccino
+                    </h4>
+                    <br>
+                    <p class="ingredients">Coffee, Milk, Ice, Caramel sauce, Caramel Syrup, Whipped Cream, Dazzle Cream.
+                    </p>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="Mocha Frappuccino.png">
+                <div class="product-info">
+                    <h4 class="product-title">Mocha Frappuccino
+                    </h4>
+                    <br>
+                    <p class="ingredients">Coffee, Milk, Ice, Mocha Sauce, Whipped Cream.
+                    </p>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="Caramel Frappuccino.png">
+                <div class="product-info">
+                    <h4 class="product-title">Caramel Frappuccino
+                    </h4>
+                    <br>
+                    <p class="ingredients">Coffee, Milk, Ice, Caramel Sauce or syrup, Whipped Cream, Caramel Drizzle, Optional Toppings.
+                    </p>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="Dark Chocolate Frappuccino.png">
+                <div class="product-info">
+                    <h4 class="product-title">Dark Chocolate Frappuccino.
+                    </h4>
+                    <br>
+                    <p class="ingredients">Coffee, Milk, Dark Chocolate Sauce or Syrup, Ice, Whipped Cream, Optional Toppings.
+                    </p>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="Dirty Matcha.png">
+                <div class="product-info">
+                    <h4 class="product-title">Dirty Matcha
+                    </h4>
+                    <br>
+                    <p class="ingredients">Matcha, Coffee, Milk, Sweetener.
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <br>
+
+   
+
+    <section class="our-products">
+        <h1>--- Please support us by buying our products ---</h1>
+            <div class="our-product">
+                <div class="stock-product">
+                    <img src="matcha.png" alt="" id="matcha">
+                    <div class="our-product-info">
+                        <h4 class="our-product-title">Matcha
+                        </h4>
+                        <br>
+                        <a class="product-btn" href=""> Buy Now</a>
+                    </div>
+                </div>
+
+                <div class="stock-product">
+                    <img src="Veranda Blend.png" alt="">
+                    <div class="our-product-info">
+                        <h4 class="our-product-title">Veranda Blend
+                        </h4>
+                        <br>
+                        <a class="product-btn" href=""> Buy Now</a>
+                    </div>
+                </div>
+
+                <div class="stock-product">
+                    <img src="Italian Roast.png" alt="">
+                    <div class="our-product-info">
+                        <h4 class="our-product-title">Italain Roast
+                        </h4>
+                        <br>
+                        <a class="product-btn" href=""> Buy Now</a>
+                    </div>
+                </div>
+
+                <div class="stock-product">
+                    <img src="Breakfast Blend.png" alt="">
+                    <div class="our-product-info">
+                        <h4 class="our-product-title">Breakfast Blend
+                        </h4>
+                        <br>
+                        <a class="product-btn" href=""> Buy Now</a>
+                    </div>
+                </div>
+
+                <div class="stock-product">
+                    <img src="Caff'e Verona.png" alt="">
+                    <div class="our-product-info">
+                        <h4 class="our-product-title">Caff'e Verona
+                        </h4>
+                        <br>
+                        <a class="product-btn" href=""> Buy Now</a>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <br>
+
+    <div class="footer-bottom">
+        <p>copyright &copy; Fahb's Coffee Mix. designed by <span>Moh Fahad Hasan</span></p>
+    </div>
+
+</body>
+</html>
